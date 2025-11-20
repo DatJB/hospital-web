@@ -113,6 +113,8 @@ public class DepartmentServlet extends HttpServlet
     public void listDepartment(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException
     {
         List<Department> departments = departmentDAO.getAllDepartments();
+        HttpSession session = request.getSession();
+        session.setAttribute("departments", departments);
         request.setAttribute("departments", departments);
         request.getRequestDispatcher("/views/admin/department.jsp").forward(request, response);
     }

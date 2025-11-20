@@ -153,12 +153,10 @@ public int createUser(User user) throws SQLException {
             ps.setInt(9, user.getUserId());
             
             ps.executeUpdate();
-        }
-        
-      
+        } 
     }
     
-        public List<User> searchByName(String keyword) {
+    public List<User> searchByName(String keyword) {
         List<User> list = new ArrayList<>();
         String sql = "SELECT * FROM users WHERE fullname LIKE ?";
         try (Connection conn = DBUtils.getConnection();

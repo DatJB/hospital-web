@@ -39,7 +39,13 @@
 
     <div class="mb-3">
         <label>Ngày sinh</label>
-        <input type="date" name="dob" class="form-control" value="<%=doc.getDob()%>" disabled>
+        <%
+            String dobFormatted = "";
+            if (doc.getDob() != null) {
+                dobFormatted = new java.text.SimpleDateFormat("yyyy-MM-dd").format(doc.getDob());
+            }
+        %>
+        <input type="date" name="dob" class="form-control" value="<%=dobFormatted%>" disabled>
     </div>
 
     <div class="mb-3">
